@@ -16,6 +16,8 @@ const Navigation = () => {
     <NavbarWrapper>
       <Link href="/">Willkommen</Link>
       <Link href="/angebot">Angebot</Link>
+      <Link href="/referenzen">Referenzen</Link>
+      <Link href="/mittelpunkt">Über mittelpunkt</Link>
     </NavbarWrapper>
   );
 };
