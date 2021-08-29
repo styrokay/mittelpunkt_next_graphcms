@@ -8,7 +8,19 @@ const NavbarWrapper = styled.nav`
   width: 100%;
   left: 0;
   top: 0;
-  background: red;
+
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  a {
+    font-size: 23px;
+    font-weight: 300;
+    margin: 0 30px;
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 const Navigation = () => {
@@ -17,7 +29,7 @@ const Navigation = () => {
       <Link href="/">Willkommen</Link>
       <Link href="/angebot">Angebot</Link>
       <Link href="/referenzen">Referenzen</Link>
-      <Link href="/mittelpunkt">Über mittelpunkt</Link>
+      <Link href="/ueber">Über mittelpunkt</Link>
     </NavbarWrapper>
   );
 };
