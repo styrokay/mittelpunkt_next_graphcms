@@ -4,6 +4,9 @@ import { getAllServicesWithSlug, getSingleService } from "../../lib/data";
 import Image from "next/image";
 import styled from "styled-components";
 import { RichText } from "@graphcms/rich-text-react-renderer";
+import Container from "../../components/Container";
+
+const ServiceWrapper = styled.div``;
 
 const ImageWrapper = styled.div`
   position: relative;
@@ -13,13 +16,19 @@ const ImageWrapper = styled.div`
 const Service = ({ service }) => {
   console.log(service);
   return (
-    <div>
-      <h1>{service.title}</h1>
+    <ServiceWrapper>
+      <Container maxwidth="700px">
+        <h1>{service.title}</h1>
+      </Container>
       <ImageWrapper>
         <Image layout="fill" objectFit="cover" src={service.images[0].url} />
       </ImageWrapper>
-      <RichText content={service.details.json} />
-    </div>
+      <Container maxwidth="700px">
+        <div className="TextContainer">
+          <RichText content={service.details.json} />
+        </div>
+      </Container>
+    </ServiceWrapper>
   );
 };
 
@@ -36,11 +45,11 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const { services } = await getAllServicesWithSlug();
-  console.log({ services });
+
   return {
     paths: services.map(({ slug }) => ({
       params: { slug },
     })),
-    fallback: true,
+    fallback: false,
   };
 }

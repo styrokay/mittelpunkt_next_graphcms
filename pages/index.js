@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getPreviewServices } from "../lib/data";
 import styled from "styled-components";
+import Container from "../components/Container";
 
 const ImgWrapper = styled.div`
   position: relative;
@@ -31,8 +32,8 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <main>
-        <h1>WILLKOMMEN</h1>
+      <Container>
+        <h1>Willkommen</h1>
 
         {data.services.map((e, index) => {
           return (
@@ -51,7 +52,7 @@ export default function Home({ data }) {
             </div>
           );
         })}
-      </main>
+      </Container>
     </div>
   );
 }

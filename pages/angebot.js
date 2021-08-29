@@ -14,7 +14,7 @@ const Angebot = ({ data }) => {
   console.log(data);
   return (
     <div>
-      <h1>Hier stehen alle Angebote</h1>
+      <h1>Angebote</h1>
 
       {data.services.map((e, index) => {
         return (
