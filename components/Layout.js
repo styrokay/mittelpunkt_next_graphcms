@@ -3,7 +3,7 @@ import Navigation from "./Navigation";
 import Footer from "./Footer";
 import styled from "styled-components";
 const SiteRoot = styled.div`
-  margin-top: 80px;
+  margin: 80px;
 `;
 
 const Layout = ({ children }) => {

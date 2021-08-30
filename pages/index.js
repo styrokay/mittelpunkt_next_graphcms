@@ -7,6 +7,7 @@ import Container from "../components/Container";
 import Button from "../components/Button";
 import Hero from "../components/Hero";
 import { RichText } from "@graphcms/rich-text-react-renderer";
+import Slide from "react-awesome-reveal";
 
 const IndexWrapper = styled.div`
   .preview-box {
@@ -61,8 +62,10 @@ export default function Home({ data, content }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <IndexWrapper>
-        <Container>
+        <Slide>
           <Hero />
+        </Slide>
+        <Container>
           <h1>{content.indices[0].title}</h1>
           <Container maxwidth="700px">
             <div className="text-container">
@@ -73,21 +76,23 @@ export default function Home({ data, content }) {
           <div className="preview-box">
             {data.services.map((e, index) => {
               return (
-                <div className="card" key={index}>
-                  <ImgWrapper>
-                    <Image
-                      alt="Vorschau Angebot"
-                      src={e.images[0].url}
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </ImgWrapper>
-                  <p>{e.title}</p>
-                  <div className="description">{e.description}</div>
-                  <Button>
-                    <Link href={`/angebot/${e.slug}`}>Weitere Infos</Link>
-                  </Button>
-                </div>
+                <Slide>
+                  <div className="card" key={index}>
+                    <ImgWrapper>
+                      <Image
+                        alt="Vorschau Angebot"
+                        src={e.images[0].url}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </ImgWrapper>
+                    <p>{e.title}</p>
+                    <div className="description">{e.description}</div>
+                    <Button>
+                      <Link href={`/angebot/${e.slug}`}>Weitere Infos</Link>
+                    </Button>
+                  </div>
+                </Slide>
               );
             })}
           </div>

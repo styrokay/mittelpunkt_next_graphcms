@@ -4,7 +4,7 @@ const ContainerWrapper = styled.section`
   display: flex;
   flex-direction: column;
   margin: auto;
-  max-width: ${(props) => (props.maxwidth ? props.maxwidth : "1400px")};
+  max-width: ${(props) => (props.maxwidth ? props.maxwidth : "1000px")};
 `;
 
 const Container = ({ children, ...props }) => {
