@@ -1,6 +1,28 @@
 import React from "react";
 import { getReferenceList } from "../lib/data";
 import { RichText } from "@graphcms/rich-text-react-renderer";
+import styled from "styled-components";
+import Container from "../components/Container";
+
+const ReferenceWrapper = styled.div`
+  .reference-post {
+    font-weight: 21px;
+    font-weight: 300;
+    margin: 30px 0;
+    position: relative;
+
+    ::after {
+      position: absolute;
+      height: 100%;
+      width: 5px;
+      background: ${({ theme }) => theme.colors.primary};
+      content: "";
+      z-index: -1;
+      top: 0;
+      left: -20px;
+    }
+  }
+`;
 
 export const getServerSideProps = async () => {
   const data = await getReferenceList();
@@ -14,12 +36,20 @@ export const getServerSideProps = async () => {
 const Referenzen = ({ data }) => {
   console.log(data);
   return (
-    <div>
-      <h1>Referenzen</h1>
-      {data.references.map((e, index) => {
-        return <RichText key={index} content={e.description.json} />;
-      })}
-    </div>
+    <ReferenceWrapper>
+      <Container>
+        <h1>Referenzen</h1>
+        <Container maxwidth="700px">
+          {data.references.map((e, index) => {
+            return (
+              <div className="reference-post">
+                <RichText key={index} content={e.description.json} />
+              </div>
+            );
+          })}
+        </Container>
+      </Container>
+    </ReferenceWrapper>
   );
 };
 

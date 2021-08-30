@@ -24,7 +24,7 @@ const Service = ({ service }) => {
         <Image layout="fill" objectFit="cover" src={service.images[0].url} />
       </ImageWrapper>
       <Container maxwidth="700px">
-        <div className="TextContainer">
+        <div className="text-container">
           <RichText content={service.details.json} />
         </div>
       </Container>
