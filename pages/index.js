@@ -37,18 +37,6 @@ const ImgWrapper = styled.div`
   height: 380px;
 `;
 
-export const getServerSideProps = async () => {
-  const data = await getPreviewServices();
-  const content = await getIndexData();
-
-  return {
-    props: {
-      data,
-      content,
-    },
-  };
-};
-
 export default function Home({ data, content }) {
   console.log(content);
   return (
@@ -62,9 +50,8 @@ export default function Home({ data, content }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <IndexWrapper>
-        <Slide>
-          <Hero />
-        </Slide>
+        <Hero />
+
         <Container>
           <h1>{content.indices[0].title}</h1>
           <Container maxwidth="700px">
@@ -76,23 +63,23 @@ export default function Home({ data, content }) {
           <div className="preview-box">
             {data.services.map((e, index) => {
               return (
-                <Slide>
-                  <div className="card" key={index}>
-                    <ImgWrapper>
-                      <Image
-                        alt="Vorschau Angebot"
-                        src={e.images[0].url}
-                        layout="fill"
-                        objectFit="cover"
-                      />
-                    </ImgWrapper>
-                    <p>{e.title}</p>
-                    <div className="description">{e.description}</div>
-                    <Button>
-                      <Link href={`/angebot/${e.slug}`}>Weitere Infos</Link>
-                    </Button>
-                  </div>
-                </Slide>
+                <div className="card" key={index}>
+                  <ImgWrapper>
+                    <Image
+                      alt="Vorschau Angebot"
+                      src={e.images[0].url}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </ImgWrapper>
+                  <p>{e.title}</p>
+                  <div className="description">{e.description}</div>
+                  <Button>
+                    <Link scroll={false} href={`/angebot/${e.slug}`}>
+                      Weitere Infos
+                    </Link>
+                  </Button>
+                </div>
               );
             })}
           </div>
@@ -101,3 +88,15 @@ export default function Home({ data, content }) {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const data = await getPreviewServices();
+  const content = await getIndexData();
+
+  return {
+    props: {
+      data,
+      content,
+    },
+  };
+};

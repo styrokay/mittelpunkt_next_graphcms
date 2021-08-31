@@ -70,7 +70,9 @@ const Angebot = ({ data }) => {
               <div className="Text-Container description">
                 {e.description}
                 <Button>
-                  <Link href={`/angebot/${e.slug}`}>Weitere Infos</Link>
+                  <Link scroll={false} href={`/angebot/${e.slug}`}>
+                    Weitere Infos
+                  </Link>
                 </Button>
               </div>
             </div>

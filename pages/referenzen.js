@@ -5,6 +5,8 @@ import styled from "styled-components";
 import Container from "../components/Container";
 
 const ReferenceWrapper = styled.div`
+  min-height: 100vh;
+
   .reference-post {
     font-weight: 21px;
     font-weight: 300;
@@ -24,15 +26,6 @@ const ReferenceWrapper = styled.div`
   }
 `;
 
-export const getServerSideProps = async () => {
-  const data = await getReferenceList();
-  return {
-    props: {
-      data,
-    },
-  };
-};
-
 const Referenzen = ({ data }) => {
   console.log(data);
   return (
@@ -42,8 +35,8 @@ const Referenzen = ({ data }) => {
         <Container maxwidth="700px">
           {data.references.map((e, index) => {
             return (
-              <div className="reference-post">
-                <RichText key={index} content={e.description.json} />
+              <div key={index} className="reference-post">
+                <RichText content={e.description.json} />
               </div>
             );
           })}
@@ -54,3 +47,12 @@ const Referenzen = ({ data }) => {
 };
 
 export default Referenzen;
+
+export const getStaticProps = async () => {
+  const data = await getReferenceList();
+  return {
+    props: {
+      data,
+    },
+  };
+};

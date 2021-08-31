@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@graphcms/rich-text-react-renderer": "^0.3.0",
+    "framer-motion": "^4.1.17",
     "graphql-request": "^3.5.0",
     "next": "11.1.0",
     "react": "17.0.2",

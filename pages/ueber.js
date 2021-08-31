@@ -65,8 +65,8 @@ const Ueber = ({ data }) => {
 
       {data.abouts[0].description.map((e, index) => {
         return (
-          <Container maxwidth="700px">
-            <div className="text-container" key={index}>
+          <Container key={index} maxwidth="700px">
+            <div className="text-container">
               <RichText content={e.raw} />
             </div>
           </Container>

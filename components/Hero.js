@@ -19,7 +19,7 @@ const HeroWrapper = styled.div`
 const Hero = () => {
   return (
     <HeroWrapper>
-      <Image height={500} width={500} src="/image/logo.svg" />
+      <Image height={500} width={500} src="/logo.svg" />
       <div className="hero-text">
         Angebot für Freizeit und Ferienbegleitung für Menschen mit einer
         geistigen, psychischen oder körperlichen Beeinträchtigung

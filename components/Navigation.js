@@ -59,7 +59,9 @@ const Navigation = () => {
   return (
     <NavbarWrapper>
       <div className={`link-wrapper ${router.pathname == "/" ? "active" : ""}`}>
-        <Link href="/">Willkommen</Link>
+        <Link scroll={false} href="/">
+          Willkommen
+        </Link>
       </div>
 
       <div
@@ -67,7 +69,9 @@ const Navigation = () => {
           router.pathname == "/angebot" ? "active" : ""
         }`}
       >
-        <Link href="/angebot">Angebot</Link>
+        <Link scroll={false} href="/angebot">
+          Angebot
+        </Link>
       </div>
 
       <div
@@ -75,7 +79,9 @@ const Navigation = () => {
           router.pathname == "/referenzen" ? "active" : ""
         }`}
       >
-        <Link href="/referenzen">Referenzen</Link>
+        <Link scroll={false} href="/referenzen">
+          Referenzen
+        </Link>
       </div>
 
       <div
@@ -83,7 +89,9 @@ const Navigation = () => {
           router.pathname == "/ueber" ? "active" : ""
         }`}
       >
-        <Link href="/ueber">Über mittelpunkt</Link>
+        <Link scroll={false} href="/ueber">
+          Über mittelpunkt
+        </Link>
       </div>
     </NavbarWrapper>
   );
