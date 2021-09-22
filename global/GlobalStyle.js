@@ -33,8 +33,10 @@ h1{
 }
 
 
+h3{
+    font-size: 2rem;
 
-
+}
 
 .text-container{
 h3{

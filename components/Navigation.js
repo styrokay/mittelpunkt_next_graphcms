@@ -31,10 +31,10 @@ const NavbarWrapper = styled.nav`
     transition: all 0.2s ease-in-out;
     ::after {
       position: absolute;
-
+      bottom: 0;
       background: ${({ theme }) => theme.colors.primary};
       content: "";
-      height: 100%;
+      height: 2px;
       width: 0%;
       left: 0;
       transition: all 0.2s ease-in-out;
@@ -50,7 +50,17 @@ const NavbarWrapper = styled.nav`
   }
 
   .active {
-    background: ${({ theme }) => theme.colors.primary};
+    ::after {
+      position: absolute;
+      bottom: 0;
+      background: ${({ theme }) => theme.colors.primary};
+      content: "";
+      height: 2px;
+      width: 100%;
+      left: 0;
+      transition: all 0.2s ease-in-out;
+      z-index: -1;
+    }
   }
 `;
 
@@ -83,7 +93,13 @@ const Navigation = () => {
           Referenzen
         </Link>
       </div>
-
+      <div
+        className={`link-wrapper ${router.pathname == "/team" ? "active" : ""}`}
+      >
+        <Link scroll={false} href="/team">
+          Team
+        </Link>
+      </div>
       <div
         className={`link-wrapper ${
           router.pathname == "/ueber" ? "active" : ""

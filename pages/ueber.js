@@ -31,37 +31,8 @@ const Ueber = ({ data }) => {
   return (
     <AboutWrapper>
       <Container maxwidth="700px">
-        <h1>Team</h1>
+        <h1>Über mittelpunkt</h1>
       </Container>
-      {data.teams.map((e, index) => {
-        return (
-          <div key={index}>
-            <Container maxwidth="700px">
-              <h4 className="name">{e.name}</h4>
-              <p className="jobtitle">{e.jobtitle}</p>
-            </Container>
-            {e.image ? (
-              <ImageWrapper>
-                <Image
-                  objectPosition="top"
-                  quality="100"
-                  layout="fill"
-                  objectFit="cover"
-                  src={e.image.url}
-                />
-              </ImageWrapper>
-            ) : null}
-            <Container maxwidth="700px">
-              {e.description ? (
-                <div className="text-container space">
-                  {" "}
-                  <RichText content={e.description.raw} />
-                </div>
-              ) : null}
-            </Container>
-          </div>
-        );
-      })}
 
       {data.abouts[0].description.map((e, index) => {
         return (
