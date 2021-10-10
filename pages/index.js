@@ -9,6 +9,7 @@ import Hero from "../components/Hero";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Slide from "react-awesome-reveal";
 import Moment from "react-moment";
+import Slider from "react-slick";
 
 const IndexWrapper = styled.div`
   .preview-box {
@@ -18,11 +19,12 @@ const IndexWrapper = styled.div`
     .card {
       flex: 1 1 100%;
       display: flex;
-      margin-bottom: 30px;
+      margin-bottom: 50px;
 
       .content {
         display: flex;
         flex-direction: column;
+        width: 100%;
       }
       .date {
         position: absolute;
@@ -44,7 +46,44 @@ const IndexWrapper = styled.div`
 
       button {
         margin-top: auto;
-        align-self: flex-start;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    button {
+      margin-left: auto;
+    }
+    .link {
+      margin: auto 0 auto auto;
+      padding: 1rem;
+      a {
+        font-size: 21px;
+        color: white;
+        position: relative;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .slider {
+    display: block;
+
+    .image-container {
+      width: 100%;
+
+      > div {
+        position: unset !important;
+      }
+
+      .image {
+        object-fit: cover;
+        width: 100% !important;
+        position: relative !important;
+        min-height: 600px !important;
       }
     }
   }
@@ -57,7 +96,18 @@ const ImgWrapper = styled.div`
   margin-right: 3rem;
 `;
 
+var settings = {
+  dots: true,
+  infinite: true,
+  speed: 1000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+};
+
 export default function Home({ data, content, news }) {
+  console.log(content);
   return (
     <>
       <Head>
@@ -69,8 +119,22 @@ export default function Home({ data, content, news }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <IndexWrapper>
-        <Hero />
+        {/*      <Hero /> */}
 
+        <Slider className="slider" {...settings}>
+          {content.indices[0].indexImage.map((e, index) => {
+            return (
+              <div className="image-container">
+                <Image
+                  quality={"100"}
+                  className={"image"}
+                  layout="fill"
+                  src={e.url}
+                />
+              </div>
+            );
+          })}
+        </Slider>
         <Container>
           <h1>{content.indices[0].title}</h1>
           <Container maxwidth="700px">
@@ -84,9 +148,11 @@ export default function Home({ data, content, news }) {
               <div key={index} className="text-container">
                 <h3> {e.title}</h3>
                 <p>{e.description}</p>
-                <Link scroll={false} href={`/infos/${e.slug}`}>
-                  Weitere Infos
-                </Link>
+                <Button>
+                  <Link scroll={false} href={`/infos/${e.slug}`}>
+                    Weitere Infos
+                  </Link>
+                </Button>
               </div>
             );
           })}

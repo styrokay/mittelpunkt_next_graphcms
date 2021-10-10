@@ -1,4 +1,6 @@
 import { createGlobalStyle } from "styled-components";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const GlobalStyle = createGlobalStyle`
 body, html{
@@ -59,7 +61,19 @@ p, li{
 }
 
 
+.link{
+display: inline-block;
 
+    background: ${({ theme }) => theme.colors.primary};
+*{
+    color: red;
+}
+}
+
+::marker{
+    color: ${({ theme }) => theme.colors.primary};
+
+}
 
 `;
 

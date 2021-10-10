@@ -6,7 +6,14 @@ import styled from "styled-components";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Container from "../../components/Container";
 
-const InfoWrapper = styled.div``;
+const InfoWrapper = styled.div`
+  .text-container {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+`;
 
 const ImageWrapper = styled.div`
   position: relative;

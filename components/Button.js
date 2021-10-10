@@ -4,8 +4,16 @@ const ButtonWrapper = styled.button`
   background: none;
   box-sizing: content-box;
   border: solid 1px ${({ theme }) => theme.colors.primary};
+  transition: 0.4s ease;
+  &:hover {
+    background: ${({ theme }) => theme.colors.primary};
 
+    a {
+      color: white;
+    }
+  }
   a {
+    transition: 1s ease;
     color: ${({ theme }) => theme.colors.primary};
     text-decoration: none;
     font-size: 22px;

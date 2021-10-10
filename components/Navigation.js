@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import Image from "next/image";
 const NavbarWrapper = styled.nav`
   position: fixed;
   background: white;
@@ -62,12 +62,21 @@ const NavbarWrapper = styled.nav`
       z-index: -1;
     }
   }
+
+  .icon {
+    margin-right: auto;
+    margin-left: auto;
+  }
 `;
 
 const Navigation = () => {
   const router = useRouter();
   return (
     <NavbarWrapper>
+      <div className="icon">
+        <Image height={60} width={60} src="/logo.svg" />
+      </div>
+
       <div className={`link-wrapper ${router.pathname == "/" ? "active" : ""}`}>
         <Link scroll={false} href="/">
           Willkommen
