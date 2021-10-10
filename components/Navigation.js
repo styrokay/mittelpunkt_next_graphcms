@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Hamburger from "./Hamburger";
+
 const NavbarWrapper = styled.nav`
   position: fixed;
   background: white;
@@ -76,8 +78,10 @@ const Navigation = () => {
       <div className="icon">
         <Image height={60} width={60} src="/logo.svg" />
       </div>
-
-      <div className={`link-wrapper ${router.pathname == "/" ? "active" : ""}`}>
+      <div>
+        <Hamburger />
+      </div>
+      {/*     <div className={`link-wrapper ${router.pathname == "/" ? "active" : ""}`}>
         <Link scroll={false} href="/">
           Willkommen
         </Link>
@@ -117,7 +121,7 @@ const Navigation = () => {
         <Link scroll={false} href="/ueber">
           Über mittelpunkt
         </Link>
-      </div>
+      </div> */}
     </NavbarWrapper>
   );
 };

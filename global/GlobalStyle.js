@@ -3,14 +3,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const GlobalStyle = createGlobalStyle`
-body, html{
+body, html, #_next{
 
     margin: 0;
     padding: 0;
 }
 *{
+
     font-family: 'Roboto Slab', serif;
     font-weight: 300;
+    box-sizing: border-box;
 }
 
 

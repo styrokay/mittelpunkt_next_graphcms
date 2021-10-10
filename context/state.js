@@ -6,9 +6,12 @@ const AppContext = createContext();
 
 export function AppWrapper({ children }) {
   const [theme, setTheme] = useState("default");
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(!open);
 
   return (
-    <AppContext.Provider value={theme}>
+    <AppContext.Provider value={{ theme, open, handleOpen }}>
       <ThemeProvider theme={themes[theme]}>
         <GlobalStyle />
         {children}

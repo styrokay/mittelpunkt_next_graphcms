@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
+import media from "styled-media-query";
 
 const variants = {
   hidden: { opacity: 0, x: -200, y: 0 },
@@ -12,7 +13,11 @@ const variants = {
 };
 
 const SiteRoot = styled.div`
-  margin: 80px;
+  box-sizing: border-box;
+
+  ${media.lessThan("medium")`
+margin: 20px;
+  `}
 `;
 
 const Layout = ({ children }) => {

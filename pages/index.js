@@ -10,8 +10,10 @@ import { RichText } from "@graphcms/rich-text-react-renderer";
 import Slide from "react-awesome-reveal";
 import Moment from "react-moment";
 import Slider from "react-slick";
+import media from "styled-media-query";
 
 const IndexWrapper = styled.div`
+  box-sizing: border-box;
   .preview-box {
     display: flex;
     flex-direction: column;
@@ -20,6 +22,9 @@ const IndexWrapper = styled.div`
       flex: 1 1 100%;
       display: flex;
       margin-bottom: 50px;
+      ${media.lessThan("medium")`
+      flex-direction: column;
+      `}
 
       .content {
         display: flex;
@@ -38,10 +43,14 @@ const IndexWrapper = styled.div`
       }
       h3 {
         margin: 0;
+        ${media.lessThan("medium")`
+    margin: 30px 0 30px 0;
+      `}
       }
       .description {
         display: flex;
         flex-direction: column;
+        margin: 30px 0 30px 0;
       }
 
       button {
@@ -91,12 +100,13 @@ const IndexWrapper = styled.div`
 
 const ImgWrapper = styled.div`
   position: relative;
-  height: 200px;
+  height: 400px;
   min-width: 50%;
   margin-right: 3rem;
 `;
 
 var settings = {
+  arrows: false,
   dots: true,
   infinite: true,
   speed: 1000,
@@ -124,7 +134,7 @@ export default function Home({ data, content, news }) {
         <Slider className="slider" {...settings}>
           {content.indices[0].indexImage.map((e, index) => {
             return (
-              <div className="image-container">
+              <div key={index} className="image-container">
                 <Image
                   quality={"100"}
                   className={"image"}
