@@ -39,7 +39,10 @@ const NavbarWrapper = styled.nav`
     align-items: flex-start;
     align-items: center;
     justify-content: flex-start;
-
+    ${media.lessThan("medium")`
+    align-items: flex-end;
+    
+    `}
     
     `};
   }
@@ -49,15 +52,17 @@ const NavbarWrapper = styled.nav`
       text-decoration: none;
       color: black;
     }
-
     font-size: 23px;
     position: relative;
     font-weight: 300;
     margin: 0 30px;
-
     background: white;
     z-index: 200;
     transition: all 0.2s ease-in-out;
+    ${media.lessThan("medium")`
+    margin: 30px;
+
+    `}
     ::after {
       position: absolute;
       bottom: 0;

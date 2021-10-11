@@ -27,7 +27,9 @@ const Info = ({ info }) => {
   return (
     <InfoWrapper>
       <Container maxwidth="700px">
-        <h1>{info.title}</h1>
+        <div className="underline--magical">
+          <h1>{info.title}</h1>
+        </div>
       </Container>
       {/*     <ImageWrapper>
         <Image layout="fill" objectFit="cover" src={service.images[0].url} />

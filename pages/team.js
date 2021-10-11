@@ -9,7 +9,7 @@ import media from "styled-media-query";
 const ImageWrapper = styled.div`
   position: relative;
   height: 800px;
-  margin: 50px 0;
+  margin: 30px 0;
   ${media.lessThan("medium")`
 height: 300px !important;
 `}
@@ -18,16 +18,16 @@ height: 300px !important;
 const TeamWrapper = styled.div`
   .name {
     font-weight: 500;
-    font-size: 40px;
+    font-size: 30px;
     margin: 10px 0;
   }
   .jobtitle {
-    font-size: 30px;
+    font-size: 20px;
     margin: 0;
   }
 
   .space {
-    margin-bottom: 200px;
+    margin-bottom: 150px;
   }
 `;
 const Team = ({ data }) => {

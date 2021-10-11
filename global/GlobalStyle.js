@@ -15,19 +15,37 @@ body, html, #_next{
     box-sizing: border-box;
 }
 
+.space {
+/*     height: 1px;
+    width: 50%;
+    background: ${({ theme }) => theme.colors.primary};
+    margin: 30px auto; */
+  }
 
 h1{
-    font-size: 74px;
+    font-size: 40px;
     font-weight: 400;
     position: relative;
     width: fit-content;
+    
+
 
     ${media.lessThan("medium")`
     font-size: 10vw;
     `}
-
-    ::after{
+ 
+    ::before{
         z-index: -20;
+        position: absolute;
+        right: 0;
+        left: 0;
+       transform: rotate(-2deg);
+        bottom: 10px;
+        content: " ";
+        height: 50%;
+        width: 100%;
+        background: ${({ theme }) => theme.colors.primary};;
+/*         z-index: -20;
         position: absolute;
         right: 100px;
         left:-10px;
@@ -36,13 +54,14 @@ h1{
         content: " ";
         height: 50%;
         width: 120%;
-        background: ${({ theme }) => theme.colors.primary};;
-    }
+        background: ${({ theme }) => theme.colors.primary};; */
+    }  
 }
 
 
 h3{
     font-size: 2rem;
+    margin: 0;
 
 }
 

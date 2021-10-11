@@ -21,15 +21,24 @@ flex-direction: column;
   }
 
   .description {
-    flex: 1;
+    flex: 1 1 400px;
     font-weight: 300;
     font-size: 21px;
-    padding: 30px;
+    padding: 0 30px;
     display: flex;
     flex-direction: column;
+    ${media.lessThan("medium")`
+    flex: 1 1 auto;
+padding: 30px 0;
+
+`}
     button {
-      margin-top: 30px;
-      align-self: flex-start;
+      margin-top: auto;
+      align-self: flex-end;
+      ${media.lessThan("medium")`
+margin: 30px 0 0 0;
+
+`}
     }
   }
 `;
@@ -49,7 +58,7 @@ const ImageWrapper = styled.div`
 
     .title {
       color: white;
-      font-size: 60px;
+      font-size: 40px;
       font-weight: 300;
       margin: 0;
       padding: 0;
@@ -66,23 +75,30 @@ const Angebot = ({ data }) => {
 
         {data.services.map((e, index) => {
           return (
-            <div className="card" key={index}>
-              <ImageWrapper>
-                <Image layout="fill" objectFit="cover" src={e.images[0].url} />
-                <div className="box">
-                  <h4 className="title">{e.title}</h4>
-                </div>
-              </ImageWrapper>
+            <>
+              <div className="card" key={index}>
+                <ImageWrapper>
+                  <Image
+                    layout="fill"
+                    objectFit="cover"
+                    src={e.images[0].url}
+                  />
+                  <div className="box">
+                    <h4 className="title">{e.title}</h4>
+                  </div>
+                </ImageWrapper>
 
-              <div className="Text-Container description">
-                {e.description}
-                <Button>
-                  <Link scroll={false} href={`/angebot/${e.slug}`}>
-                    Weitere Infos
-                  </Link>
-                </Button>
+                <div className="Text-Container description">
+                  {e.description}
+                  <Button>
+                    <Link scroll={false} href={`/angebot/${e.slug}`}>
+                      Weitere Infos
+                    </Link>
+                  </Button>
+                </div>
               </div>
-            </div>
+              <div className="space" />
+            </>
           );
         })}
       </Container>

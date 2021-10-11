@@ -51,6 +51,7 @@ const IndexWrapper = styled.div`
         display: flex;
         flex-direction: column;
         margin: 30px 0 30px 0;
+        font-size: 21px;
       }
 
       button {
@@ -60,9 +61,30 @@ const IndexWrapper = styled.div`
     }
   }
 
+  .lead-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 21px;
+  }
+
   .text-container {
     display: flex;
     flex-direction: column;
+    /*     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16); */
+    padding: 30px;
+    margin: 30px 0;
+    position: relative;
+
+    ::after {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      content: "";
+      background: ${({ theme }) => theme.colors.primary};
+    }
+
     button {
       margin-left: auto;
     }
@@ -151,55 +173,62 @@ export default function Home({ data, content, news }) {
         <Container>
           <h1>{content.indices[0].title}</h1>
           <Container maxwidth="700px">
-            <div className="text-container">
+            <div className="lead-text">
               <RichText content={content.indices[0].description.raw} />
             </div>
           </Container>
           <h1>Aktuell</h1>
           {news.infos.map((e, index) => {
             return (
-              <div key={index} className="text-container">
-                <h3> {e.title}</h3>
-                <p>{e.description}</p>
-                <Button>
-                  <Link scroll={false} href={`/infos/${e.slug}`}>
-                    Weitere Infos
-                  </Link>
-                </Button>
-              </div>
+              <>
+                <div key={index} className="text-container">
+                  <h3> {e.title}</h3>
+                  <p>{e.description}</p>
+
+                  <Button>
+                    <Link scroll={false} href={`/infos/${e.slug}`}>
+                      Weitere Infos
+                    </Link>
+                  </Button>
+                </div>
+                <div className="space" />
+              </>
             );
           })}
           <h1>Agenda </h1>
           <div className="preview-box">
             {data.services.map((e, index) => {
               return (
-                <div className="card" key={index}>
-                  <ImgWrapper>
-                    <Image
-                      alt="Vorschau Angebot"
-                      src={e.images[0].url}
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                    <div className="date">
-                      {" "}
-                      {e.date != null ? (
-                        <Moment format="DD. MMMM YYYY" locale="de">
-                          {e.date}
-                        </Moment>
-                      ) : null}
+                <>
+                  <div className="card" key={index}>
+                    <ImgWrapper>
+                      <Image
+                        alt="Vorschau Angebot"
+                        src={e.images[0].url}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                      <div className="date">
+                        {" "}
+                        {e.date != null ? (
+                          <Moment format="DD. MMMM YYYY" locale="de">
+                            {e.date}
+                          </Moment>
+                        ) : null}
+                      </div>
+                    </ImgWrapper>
+                    <div className="content">
+                      <h3>{e.title}</h3>
+                      <div className="description">{e.description}</div>
+                      <Button>
+                        <Link scroll={false} href={`/angebot/${e.slug}`}>
+                          Weitere Infos
+                        </Link>
+                      </Button>
                     </div>
-                  </ImgWrapper>
-                  <div className="content">
-                    <h3>{e.title}</h3>
-                    <div className="description">{e.description}</div>
-                    <Button>
-                      <Link scroll={false} href={`/angebot/${e.slug}`}>
-                        Weitere Infos
-                      </Link>
-                    </Button>
                   </div>
-                </div>
+                  <div className="space" />
+                </>
               );
             })}
           </div>
