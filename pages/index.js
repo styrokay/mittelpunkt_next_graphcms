@@ -93,6 +93,9 @@ const IndexWrapper = styled.div`
         width: 100% !important;
         position: relative !important;
         min-height: 600px !important;
+        ${media.lessThan("medium")`
+min-height: 300px !important;
+`}
       }
     }
   }

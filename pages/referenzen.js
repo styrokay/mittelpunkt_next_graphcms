@@ -6,7 +6,7 @@ import Container from "../components/Container";
 
 const ReferenceWrapper = styled.div`
   min-height: 100vh;
-
+  padding: 0 20px;
   .reference-post {
     font-weight: 21px;
     font-weight: 300;

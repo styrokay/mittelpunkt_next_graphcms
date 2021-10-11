@@ -14,9 +14,10 @@ const variants = {
 
 const SiteRoot = styled.div`
   box-sizing: border-box;
+  margin: 80px 0 0 0;
 
   ${media.lessThan("medium")`
-margin: 20px;
+margin: 80px 20px;
   `}
 `;
 

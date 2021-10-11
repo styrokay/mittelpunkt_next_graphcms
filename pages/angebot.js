@@ -5,12 +5,19 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "../components/Container";
 import Button from "../components/Button";
+import media from "styled-media-query";
 
 const ServiceWrapper = styled.div`
   .card {
     display: flex;
     flex-direction: row;
     margin: 30px 0;
+
+    ${media.lessThan("medium")`
+
+flex-direction: column;
+
+`}
   }
 
   .description {
@@ -29,7 +36,7 @@ const ServiceWrapper = styled.div`
 
 const ImageWrapper = styled.div`
   position: relative;
-  flex: 1;
+  flex: 1 1 400px;
   height: 400px;
 
   .box {

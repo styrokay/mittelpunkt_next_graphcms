@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import media from "styled-media-query";
 const GlobalStyle = createGlobalStyle`
 body, html, #_next{
 
@@ -21,6 +21,10 @@ h1{
     font-weight: 400;
     position: relative;
     width: fit-content;
+
+    ${media.lessThan("medium")`
+    font-size: 10vw;
+    `}
 
     ::after{
         z-index: -20;

@@ -5,12 +5,16 @@ import Image from "next/image";
 import styled from "styled-components";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Container from "../../components/Container";
+import media from "styled-media-query";
 
 const ServiceWrapper = styled.div``;
 
 const ImageWrapper = styled.div`
   position: relative;
   height: 800px;
+  ${media.lessThan("medium")`
+height: 300px;
+`}
 `;
 
 const Service = ({ service }) => {

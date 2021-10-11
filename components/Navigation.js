@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Hamburger from "./Hamburger";
+import media from "styled-media-query";
+import { useAppContext } from "../context/state";
 
 const NavbarWrapper = styled.nav`
   position: fixed;
@@ -16,6 +18,31 @@ const NavbarWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  ${media.lessThan("medium")`
+    padding: 0 20px;
+    
+    `}
+
+  .link-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: left 0.4s ease;
+    ${media.lessThan("medium")`
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 80px;
+    left: ${(props) => (props.open ? "0" : "-100%")};
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    align-items: center;
+    justify-content: flex-start;
+
+    
+    `};
+  }
 
   .link-wrapper {
     a {
@@ -64,64 +91,84 @@ const NavbarWrapper = styled.nav`
       z-index: -1;
     }
   }
-
+  button {
+    ${media.greaterThan("medium")`
+   display: none;
+    
+    `}
+  }
   .icon {
     margin-right: auto;
     margin-left: auto;
+    ${media.lessThan("medium")`
+    margin-left: 0;
+    
+    `}
   }
 `;
 
 const Navigation = () => {
+  const { open, handleOpen } = useAppContext();
   const router = useRouter();
+
   return (
-    <NavbarWrapper>
+    <NavbarWrapper open={open}>
       <div className="icon">
         <Image height={60} width={60} src="/logo.svg" />
       </div>
       <div>
         <Hamburger />
       </div>
-      {/*     <div className={`link-wrapper ${router.pathname == "/" ? "active" : ""}`}>
-        <Link scroll={false} href="/">
-          Willkommen
-        </Link>
+      <div className="link-menu">
+        <div
+          onClick={handleOpen}
+          className={`link-wrapper ${router.pathname == "/" ? "active" : ""}`}
+        >
+          <Link scroll={false} href="/">
+            Willkommen
+          </Link>
+        </div>
+        <div
+          onClick={handleOpen}
+          className={`link-wrapper ${
+            router.pathname == "/angebot" ? "active" : ""
+          }`}
+        >
+          <Link scroll={false} href="/angebot">
+            Angebot
+          </Link>
+        </div>
+        <div
+          onClick={handleOpen}
+          className={`link-wrapper ${
+            router.pathname == "/referenzen" ? "active" : ""
+          }`}
+        >
+          <Link scroll={false} href="/referenzen">
+            Referenzen
+          </Link>
+        </div>
+        <div
+          onClick={handleOpen}
+          className={`link-wrapper ${
+            router.pathname == "/team" ? "active" : ""
+          }`}
+        >
+          <Link scroll={false} href="/team">
+            Team
+          </Link>
+        </div>
+        <div
+          onClick={handleOpen}
+          className={`link-wrapper ${
+            router.pathname == "/ueber" ? "active" : ""
+          }`}
+        >
+          <Link scroll={false} href="/ueber">
+            Über mittelpunkt
+          </Link>
+        </div>
       </div>
-
-      <div
-        className={`link-wrapper ${
-          router.pathname == "/angebot" ? "active" : ""
-        }`}
-      >
-        <Link scroll={false} href="/angebot">
-          Angebot
-        </Link>
-      </div>
-
-      <div
-        className={`link-wrapper ${
-          router.pathname == "/referenzen" ? "active" : ""
-        }`}
-      >
-        <Link scroll={false} href="/referenzen">
-          Referenzen
-        </Link>
-      </div>
-      <div
-        className={`link-wrapper ${router.pathname == "/team" ? "active" : ""}`}
-      >
-        <Link scroll={false} href="/team">
-          Team
-        </Link>
-      </div>
-      <div
-        className={`link-wrapper ${
-          router.pathname == "/ueber" ? "active" : ""
-        }`}
-      >
-        <Link scroll={false} href="/ueber">
-          Über mittelpunkt
-        </Link>
-      </div> */}
     </NavbarWrapper>
   );
 };

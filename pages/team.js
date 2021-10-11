@@ -4,10 +4,15 @@ import Container from "../components/Container";
 import Image from "next/image";
 import { getAboutData } from "../lib/data";
 import { RichText } from "@graphcms/rich-text-react-renderer";
+import media from "styled-media-query";
+
 const ImageWrapper = styled.div`
   position: relative;
   height: 800px;
   margin: 50px 0;
+  ${media.lessThan("medium")`
+height: 300px !important;
+`}
 `;
 
 const TeamWrapper = styled.div`
