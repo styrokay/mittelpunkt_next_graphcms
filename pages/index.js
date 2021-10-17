@@ -160,16 +160,13 @@ var settings = {
 };
 
 export default function Home({ data, content, news }) {
-  console.log(content);
   return (
     <>
       <Head>
-        <title>mittelpunkt</title>
         <meta
           name="description"
           content="Angebot für Freizeit und Ferienbegleitung für Menschen mit einer geistigen, psychischen oder körperlichen Beeinträchtigung"
         />
-        <link rel="icon" href="/favicon.png" />
       </Head>
       <IndexWrapper>
         <Slider className="slider" {...settings}>
@@ -177,6 +174,7 @@ export default function Home({ data, content, news }) {
             return (
               <div key={index} className="image-container">
                 <Image
+                  alt="Bild Mittelpunkt"
                   quality={"100"}
                   className={"image"}
                   layout="fill"
@@ -205,8 +203,8 @@ export default function Home({ data, content, news }) {
             <h1>Aktuell</h1>
             {news.infos.map((e, index) => {
               return (
-                <>
-                  <div key={index} className="text-container">
+                <div key={index}>
+                  <div className="text-container">
                     <h3> {e.title}</h3>
                     <p>{e.description}</p>
                     <Button>
@@ -216,7 +214,7 @@ export default function Home({ data, content, news }) {
                     </Button>
                   </div>
                   <div className="space" />
-                </>
+                </div>
               );
             })}
           </section>
@@ -226,8 +224,8 @@ export default function Home({ data, content, news }) {
             <div className="preview-box">
               {data.services.map((e, index) => {
                 return (
-                  <>
-                    <div className="card" key={index}>
+                  <div key={index}>
+                    <div className="card">
                       <ImgWrapper>
                         <Image
                           alt="Vorschau Angebot"
@@ -255,7 +253,7 @@ export default function Home({ data, content, news }) {
                       </div>
                     </div>
                     <div className="space" />
-                  </>
+                  </div>
                 );
               })}
             </div>

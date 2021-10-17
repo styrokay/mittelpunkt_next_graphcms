@@ -31,7 +31,6 @@ padding: 0 20px;
 `;
 
 const Referenzen = ({ data }) => {
-  console.log(data);
   return (
     <ReferenceWrapper>
       <Container>

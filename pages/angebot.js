@@ -67,7 +67,6 @@ const ImageWrapper = styled.div`
 `;
 
 const Angebot = ({ data }) => {
-  console.log(data);
   return (
     <ServiceWrapper>
       <Container>
@@ -75,10 +74,11 @@ const Angebot = ({ data }) => {
 
         {data.services.map((e, index) => {
           return (
-            <>
+            <div key={index}>
               <div className="card" key={index}>
                 <ImageWrapper>
                   <Image
+                    alt="Bild Angebot"
                     layout="fill"
                     objectFit="cover"
                     src={e.images[0].url}
@@ -98,7 +98,7 @@ const Angebot = ({ data }) => {
                 </div>
               </div>
               <div className="space" />
-            </>
+            </div>
           );
         })}
       </Container>

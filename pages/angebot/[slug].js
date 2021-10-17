@@ -26,7 +26,12 @@ const Service = ({ service }) => {
         <h1>{service.title}</h1>
       </Container>
       <ImageWrapper>
-        <Image layout="fill" objectFit="cover" src={service.images[0].url} />
+        <Image
+          alt="Bild Angebot"
+          layout="fill"
+          objectFit="cover"
+          src={service.images[0].url}
+        />
       </ImageWrapper>
       <Container maxwidth="700px">
         <div className="text-container">

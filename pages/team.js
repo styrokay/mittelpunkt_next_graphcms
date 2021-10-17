@@ -46,6 +46,7 @@ const Team = ({ data }) => {
             {e.image ? (
               <ImageWrapper>
                 <Image
+                  alt="Portrait Team"
                   objectPosition="top"
                   quality="100"
                   layout="fill"

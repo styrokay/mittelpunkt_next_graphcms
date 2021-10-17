@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { AppContext, useAppContext } from "../context/state";
+import { useAppContext } from "../context/state";
 
 const StyledBurger = styled.button`
   width: 30px;
@@ -67,7 +67,7 @@ const StyledBurger = styled.button`
 
 const Hamburger = (props) => {
   const { handleOpen, open } = useAppContext();
-  console.log(handleOpen);
+
   return (
     <StyledBurger
       open={open}
