@@ -23,7 +23,7 @@ body, html, #_next{
   }
 
 h1{
-    font-size: 40px;
+    font-size: 45px;
     font-weight: 400;
     position: relative;
     width: fit-content;
@@ -85,6 +85,10 @@ p, li{
     color: red;
 }
 
+
+a{
+    color: ${({ theme }) => theme.colors.primary};;
+}
 
 .link{
 display: inline-block;

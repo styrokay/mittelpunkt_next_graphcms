@@ -3,12 +3,16 @@ import { getReferenceList } from "../lib/data";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import styled from "styled-components";
 import Container from "../components/Container";
+import media from "styled-media-query";
 
 const ReferenceWrapper = styled.div`
   min-height: 100vh;
-  padding: 0 20px;
+  ${media.lessThan("medium")`
+padding: 0 20px;
+`}
+
   .reference-post {
-    font-weight: 21px;
+    font-size: 21px;
     font-weight: 300;
     margin: 30px 0;
     position: relative;

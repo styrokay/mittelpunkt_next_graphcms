@@ -103,10 +103,9 @@ const NavbarWrapper = styled.nav`
     `}
   }
   .icon {
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
     ${media.lessThan("medium")`
-    margin-left: 0;
+margin: 15px auto auto 0;
     
     `}
   }
@@ -119,8 +118,13 @@ const Navigation = () => {
   return (
     <NavbarWrapper open={open}>
       <div className="icon">
-        <Image height={60} width={60} src="/logo.svg" />
+        <Link href="/">
+          <a>
+            <Image height={60} width={60} src="/logo.svg" />
+          </a>
+        </Link>
       </div>
+
       <div>
         <Hamburger />
       </div>

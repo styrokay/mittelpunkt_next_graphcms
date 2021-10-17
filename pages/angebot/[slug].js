@@ -12,6 +12,7 @@ const ServiceWrapper = styled.div``;
 const ImageWrapper = styled.div`
   position: relative;
   height: 800px;
+  margin: 30px 0;
   ${media.lessThan("medium")`
 height: 300px;
 `}

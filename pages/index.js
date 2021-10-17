@@ -5,15 +5,20 @@ import { getPreviewServices, getIndexData, getPreviewNews } from "../lib/data";
 import styled from "styled-components";
 import Container from "../components/Container";
 import Button from "../components/Button";
-import Hero from "../components/Hero";
+
 import { RichText } from "@graphcms/rich-text-react-renderer";
-import Slide from "react-awesome-reveal";
+
 import Moment from "react-moment";
 import Slider from "react-slick";
 import media from "styled-media-query";
 
 const IndexWrapper = styled.div`
   box-sizing: border-box;
+
+  .announce {
+    margin: 100px 0;
+  }
+
   .preview-box {
     display: flex;
     flex-direction: column;
@@ -99,7 +104,20 @@ const IndexWrapper = styled.div`
       }
     }
   }
+  .hero {
+    position: relative;
 
+    .text-overlay {
+      position: absolute;
+      bottom: 0;
+      margin: 10px;
+      background: ${({ theme }) => theme.colors.primary};
+    }
+  }
+  .hero-text {
+    font-size: 30px;
+    margin: 30px 0 0 0;
+  }
   .slider {
     display: block;
 
@@ -154,8 +172,6 @@ export default function Home({ data, content, news }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <IndexWrapper>
-        {/*      <Hero /> */}
-
         <Slider className="slider" {...settings}>
           {content.indices[0].indexImage.map((e, index) => {
             return (
@@ -170,68 +186,80 @@ export default function Home({ data, content, news }) {
             );
           })}
         </Slider>
+
         <Container>
-          <h1>{content.indices[0].title}</h1>
           <Container maxwidth="700px">
-            <div className="lead-text">
+            <div className="hero-text">
+              <p>
+                Angebot für Freizeit und Ferienbegleitung für Menschen mit einer
+                geistigen, psychischen oder körperlichen Beeinträchtigung
+              </p>
+            </div>
+            <div className="lead-text announce">
+              <h1>{content.indices[0].title}</h1>
               <RichText content={content.indices[0].description.raw} />
             </div>
           </Container>
-          <h1>Aktuell</h1>
-          {news.infos.map((e, index) => {
-            return (
-              <>
-                <div key={index} className="text-container">
-                  <h3> {e.title}</h3>
-                  <p>{e.description}</p>
 
-                  <Button>
-                    <Link scroll={false} href={`/infos/${e.slug}`}>
-                      Weitere Infos
-                    </Link>
-                  </Button>
-                </div>
-                <div className="space" />
-              </>
-            );
-          })}
-          <h1>Agenda </h1>
-          <div className="preview-box">
-            {data.services.map((e, index) => {
+          <section className="announce">
+            <h1>Aktuell</h1>
+            {news.infos.map((e, index) => {
               return (
                 <>
-                  <div className="card" key={index}>
-                    <ImgWrapper>
-                      <Image
-                        alt="Vorschau Angebot"
-                        src={e.images[0].url}
-                        layout="fill"
-                        objectFit="cover"
-                      />
-                      <div className="date">
-                        {" "}
-                        {e.date != null ? (
-                          <Moment format="DD. MMMM YYYY" locale="de">
-                            {e.date}
-                          </Moment>
-                        ) : null}
-                      </div>
-                    </ImgWrapper>
-                    <div className="content">
-                      <h3>{e.title}</h3>
-                      <div className="description">{e.description}</div>
-                      <Button>
-                        <Link scroll={false} href={`/angebot/${e.slug}`}>
-                          Weitere Infos
-                        </Link>
-                      </Button>
-                    </div>
+                  <div key={index} className="text-container">
+                    <h3> {e.title}</h3>
+                    <p>{e.description}</p>
+                    <Button>
+                      <Link scroll={false} href={`/infos/${e.slug}`}>
+                        Weitere Infos
+                      </Link>
+                    </Button>
                   </div>
                   <div className="space" />
                 </>
               );
             })}
-          </div>
+          </section>
+
+          <section className="announce">
+            <h1>Agenda </h1>
+            <div className="preview-box">
+              {data.services.map((e, index) => {
+                return (
+                  <>
+                    <div className="card" key={index}>
+                      <ImgWrapper>
+                        <Image
+                          alt="Vorschau Angebot"
+                          src={e.images[0].url}
+                          layout="fill"
+                          objectFit="cover"
+                        />
+                        <div className="date">
+                          {" "}
+                          {e.date != null ? (
+                            <Moment format="DD. MMMM YYYY" locale="de">
+                              {e.date}
+                            </Moment>
+                          ) : null}
+                        </div>
+                      </ImgWrapper>
+                      <div className="content">
+                        <h3>{e.title}</h3>
+                        <div className="description">{e.description}</div>
+                        <Button>
+                          <Link scroll={false} href={`/angebot/${e.slug}`}>
+                            Weitere Infos
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                    <div className="space" />
+                  </>
+                );
+              })}
+            </div>
+          </section>
         </Container>
       </IndexWrapper>
     </>
