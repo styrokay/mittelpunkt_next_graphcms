@@ -9,6 +9,8 @@ import Button from "../components/Button";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
 import Moment from "react-moment";
+import "moment/locale/de-ch";
+
 import Slider from "react-slick";
 import media from "styled-media-query";
 
@@ -236,7 +238,7 @@ export default function Home({ data, content, news }) {
                         <div className="date">
                           {" "}
                           {e.date != null ? (
-                            <Moment format="DD. MMMM YYYY" locale="de">
+                            <Moment format="DD. MMMM YYYY" locale="de-ch">
                               {e.date}
                             </Moment>
                           ) : null}

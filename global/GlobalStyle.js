@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import media from "styled-media-query";
 const GlobalStyle = createGlobalStyle`
 body, html, #_next{
-
+    white-space: break-spaces;
     margin: 0;
     padding: 0;
 }
