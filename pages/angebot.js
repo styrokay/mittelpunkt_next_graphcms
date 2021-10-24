@@ -1,11 +1,14 @@
 import React from "react";
-import { getServiceList } from "../lib/data";
+import { getServiceList, getPreviewServices } from "../lib/data";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import media from "styled-media-query";
+import Moment from "react-moment";
+import "moment/locale/de-ch";
+import Card from "../components/Card";
 
 const ServiceWrapper = styled.div`
   .card {
@@ -56,6 +59,15 @@ const ImageWrapper = styled.div`
     padding: 10px;
     background: ${({ theme }) => theme.colors.primary};
 
+    .date {
+      font-size: 2rem;
+      bottom: 0;
+      right: 0;
+      color: white;
+
+      background-color: ${({ theme }) => theme.colors.primary};
+    }
+
     .title {
       color: white;
       font-size: 40px;
@@ -66,13 +78,22 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const Angebot = ({ data }) => {
+const Angebot = ({ permanent, temporary }) => {
+  console.log(permanent);
   return (
     <ServiceWrapper>
       <Container>
         <h1>Angebot</h1>
 
-        {data.services.map((e, index) => {
+        {permanent.services.map((e, index) => {
+          return <Card key={index} data={e}></Card>;
+        })}
+
+        {temporary.services.map((e, index) => {
+          return <Card key={index} data={e}></Card>;
+        })}
+
+        {/*         {permanent.services.map((e, index) => {
           return (
             <div key={index}>
               <div className="card" key={index}>
@@ -101,6 +122,44 @@ const Angebot = ({ data }) => {
             </div>
           );
         })}
+        {console.log(temporary)}
+        {temporary.services.map((e, index) => {
+          return (
+            <div key={index}>
+              <div className="card" key={index}>
+                <ImageWrapper>
+                  <Image
+                    alt="Bild Angebot"
+                    layout="fill"
+                    objectFit="cover"
+                    src={e.images[0].url}
+                  />
+                  <div className="box">
+                    <div className="date">
+                      {" "}
+                      {e.date != null ? (
+                        <Moment format="DD. MMMM YYYY" locale="de-ch">
+                          {e.date}
+                        </Moment>
+                      ) : null}
+                    </div>
+                  </div>
+                </ImageWrapper>
+
+                <div className="Text-Container description">
+                  <h3>{e.title}</h3>
+                  {e.description}
+                  <Button>
+                    <Link scroll={false} href={`/angebot/${e.slug}`}>
+                      Weitere Infos
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+              <div className="space" />
+            </div>
+          );
+        })}{" "} */}
       </Container>
     </ServiceWrapper>
   );
@@ -109,10 +168,12 @@ const Angebot = ({ data }) => {
 export default Angebot;
 
 export const getStaticProps = async () => {
-  const data = await getServiceList();
+  const permanent = await getServiceList();
+  const temporary = await getPreviewServices();
   return {
     props: {
-      data,
+      permanent,
+      temporary,
     },
   };
 };

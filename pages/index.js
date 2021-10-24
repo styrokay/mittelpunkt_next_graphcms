@@ -7,7 +7,7 @@ import Container from "../components/Container";
 import Button from "../components/Button";
 
 import { RichText } from "@graphcms/rich-text-react-renderer";
-
+import Card from "../components/Card";
 import Moment from "react-moment";
 import "moment/locale/de-ch";
 
@@ -19,6 +19,39 @@ const IndexWrapper = styled.div`
 
   .announce {
     margin: 100px 0;
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      /*     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16); */
+      padding: 30px;
+      margin: 30px 0;
+      position: relative;
+
+      ::after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        content: "";
+        background: ${({ theme }) => theme.colors.primary};
+      }
+
+      button {
+        margin-left: auto;
+      }
+      .link {
+        margin: auto 0 auto auto;
+        padding: 1rem;
+        a {
+          font-size: 21px;
+          color: white;
+          position: relative;
+          text-decoration: none;
+        }
+      }
+    }
   }
 
   .preview-box {
@@ -74,38 +107,6 @@ const IndexWrapper = styled.div`
     font-size: 21px;
   }
 
-  .text-container {
-    display: flex;
-    flex-direction: column;
-    /*     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16); */
-    padding: 30px;
-    margin: 30px 0;
-    position: relative;
-
-    ::after {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 4px;
-      content: "";
-      background: ${({ theme }) => theme.colors.primary};
-    }
-
-    button {
-      margin-left: auto;
-    }
-    .link {
-      margin: auto 0 auto auto;
-      padding: 1rem;
-      a {
-        font-size: 21px;
-        color: white;
-        position: relative;
-        text-decoration: none;
-      }
-    }
-  }
   .hero {
     position: relative;
 
@@ -221,10 +222,14 @@ export default function Home({ data, content, news }) {
             })}
           </section>
 
-          <section className="announce">
+          <section>
             <h1>Agenda </h1>
             <div className="preview-box">
               {data.services.map((e, index) => {
+                return <Card data={e} key={index}></Card>;
+              })}
+
+              {/*    {data.services.map((e, index) => {
                 return (
                   <div key={index}>
                     <div className="card">
@@ -257,7 +262,7 @@ export default function Home({ data, content, news }) {
                     <div className="space" />
                   </div>
                 );
-              })}
+              })} */}
             </div>
           </section>
         </Container>
