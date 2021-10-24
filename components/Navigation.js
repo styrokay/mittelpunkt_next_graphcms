@@ -120,7 +120,12 @@ const Navigation = () => {
       <div className="icon">
         <Link href="/">
           <a>
-            <Image height={60} width={60} src="/Logo.svg" />
+            <Image
+              height={60}
+              width={60}
+              alt="Logo Mittelpunkt"
+              src="/Logo.svg"
+            />
           </a>
         </Link>
       </div>

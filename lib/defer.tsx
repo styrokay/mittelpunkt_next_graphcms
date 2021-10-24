@@ -1,4 +1,4 @@
-import { NextScript } from 'next/document';
+import { NextScript } from "next/document";
 
 function dedupe<T extends { file: string }>(bundles: T[]): T[] {
   const files = new Set<string>();
@@ -32,7 +32,7 @@ class DeferNextScript extends NextScript {
     } = this.context;
 
     return dedupe(dynamicImports).map((bundle) => {
-      if (!bundle.file.endsWith('.js') || files.allFiles.includes(bundle.file))
+      if (!bundle.file.endsWith(".js") || files.allFiles.includes(bundle.file))
         return null;
 
       return (
@@ -58,9 +58,9 @@ class DeferNextScript extends NextScript {
       devOnlyCacheBusterQueryString,
     } = this.context;
 
-    const normalScripts = files.allFiles.filter((file) => file.endsWith('.js'));
+    const normalScripts = files.allFiles.filter((file) => file.endsWith(".js"));
     const lowPriorityScripts = buildManifest.lowPriorityFiles?.filter((file) =>
-      file.endsWith('.js')
+      file.endsWith(".js")
     );
 
     return [...normalScripts, ...lowPriorityScripts].map((file) => {

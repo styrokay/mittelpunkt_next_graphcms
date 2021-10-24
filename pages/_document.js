@@ -1,5 +1,4 @@
-import Document, { Html, Head, Main } from "next/document";
-import DeferNextScript from "../lib/defer";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -40,7 +39,7 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <Main />
-          <DeferNextScript />
+          <NextScript />
         </body>
       </Html>
     );
