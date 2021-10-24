@@ -5,11 +5,8 @@ import { getPreviewServices, getIndexData, getPreviewNews } from "../lib/data";
 import styled from "styled-components";
 import Container from "../components/Container";
 import Button from "../components/Button";
-
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Card from "../components/Card";
-import Moment from "react-moment";
-import "moment/locale/de-ch";
 
 import Slider from "react-slick";
 import media from "styled-media-query";
@@ -24,7 +21,7 @@ const IndexWrapper = styled.div`
       display: flex;
       flex-direction: column;
       /*     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16); */
-      padding: 30px;
+      padding: 0 20px;
       margin: 30px 0;
       position: relative;
 
@@ -50,53 +47,6 @@ const IndexWrapper = styled.div`
           position: relative;
           text-decoration: none;
         }
-      }
-    }
-  }
-
-  .preview-box {
-    display: flex;
-    flex-direction: column;
-
-    .card {
-      flex: 1 1 100%;
-      display: flex;
-      margin-bottom: 50px;
-      ${media.lessThan("medium")`
-      flex-direction: column;
-      `}
-
-      .content {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-      .date {
-        position: absolute;
-        font-size: 2rem;
-        bottom: 0;
-        right: 0;
-        color: white;
-        padding: 1rem;
-        margin: 1rem;
-        background-color: ${({ theme }) => theme.colors.primary};
-      }
-      h3 {
-        margin: 0;
-        ${media.lessThan("medium")`
-    margin: 30px 0 30px 0;
-      `}
-      }
-      .description {
-        display: flex;
-        flex-direction: column;
-        margin: 30px 0 30px 0;
-        font-size: 21px;
-      }
-
-      button {
-        margin-top: auto;
-        align-self: flex-end;
       }
     }
   }
@@ -142,13 +92,6 @@ min-height: 300px !important;
       }
     }
   }
-`;
-
-const ImgWrapper = styled.div`
-  position: relative;
-  height: 400px;
-  min-width: 50%;
-  margin-right: 3rem;
 `;
 
 var settings = {
@@ -224,45 +167,10 @@ export default function Home({ data, content, news }) {
 
           <section>
             <h1>Agenda </h1>
-            <div className="preview-box">
+            <div>
               {data.services.map((e, index) => {
                 return <Card data={e} key={index}></Card>;
               })}
-
-              {/*    {data.services.map((e, index) => {
-                return (
-                  <div key={index}>
-                    <div className="card">
-                      <ImgWrapper>
-                        <Image
-                          alt="Vorschau Angebot"
-                          src={e.images[0].url}
-                          layout="fill"
-                          objectFit="cover"
-                        />
-                        <div className="date">
-                          {" "}
-                          {e.date != null ? (
-                            <Moment format="DD. MMMM YYYY" locale="de-ch">
-                              {e.date}
-                            </Moment>
-                          ) : null}
-                        </div>
-                      </ImgWrapper>
-                      <div className="content">
-                        <h3>{e.title}</h3>
-                        <div className="description">{e.description}</div>
-                        <Button>
-                          <Link scroll={false} href={`/angebot/${e.slug}`}>
-                            Weitere Infos
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
-                    <div className="space" />
-                  </div>
-                );
-              })} */}
             </div>
           </section>
         </Container>

@@ -79,7 +79,6 @@ const ImageWrapper = styled.div`
 `;
 
 const Angebot = ({ permanent, temporary }) => {
-  console.log(permanent);
   return (
     <ServiceWrapper>
       <Container>

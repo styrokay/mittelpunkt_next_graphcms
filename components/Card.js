@@ -44,10 +44,17 @@ flex-direction: column;
     flex-direction: column;
     flex: 1;
 
+    h3 {
+      margin: 0 0 1rem 0;
+      ${media.lessThan("medium")`
+     margin: 1rem 0 0 0;
+    `}
+    }
+
     p {
       margin: 0;
       ${media.lessThan("medium")`
-  margin: 30px 0;
+         margin: 30px 0;
     `}
     }
 
