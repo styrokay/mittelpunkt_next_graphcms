@@ -70,7 +70,6 @@ const Card = ({ data: { title, date, images, description, slug } }) => {
     <CardWrapper>
       <div className="image-container">
         <Image
-          quality={"80"}
           alt="Vorschau Angebot"
           src={images[0].url}
           layout="fill"
