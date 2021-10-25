@@ -121,7 +121,7 @@ export default function Home({ data, content, news }) {
               <div key={index} className="image-container">
                 <Image
                   alt="Bild Mittelpunkt"
-                  quality={"100"}
+                  quality={"80"}
                   className={"image"}
                   layout="fill"
                   src={e.url}
