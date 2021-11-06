@@ -15,6 +15,31 @@ body, html, #_next{
     box-sizing: border-box;
 }
 
+
+table{
+
+tbody{
+
+
+
+    td:last-child{
+font-weight: 900;
+width: 20%;
+text-align: right;
+
+
+        ${media.lessThan("medium")`
+        width: 50%;
+        `}
+    }
+
+}
+
+}
+
+
+
+
 .space {
 /*     height: 1px;
     width: 50%;
@@ -69,6 +94,7 @@ h3{
 h3{
     font-size: 30px;
     font-weight: 400;
+    margin-top: 50px;
 }
 
 p, li{
@@ -88,6 +114,10 @@ p, li{
 
 a{
     color: ${({ theme }) => theme.colors.primary};;
+}
+
+b{
+    font-weight: 500;
 }
 
 .link{

@@ -53,8 +53,8 @@ const Footer = () => {
       </section>
       <section>
         <p id="title">Links</p>
-        <Link href="/agb">AGB </Link> <br />
-        <Link href="/agb">Impressum </Link>
+        <Link href="/AGB.pdf">AGB </Link> <br />
+        <Link href="/impressum">Impressum </Link>
         <br />
         <Link href="https://www.ombudsstellebern.ch/">Ombudsstelle</Link>
         <br />
