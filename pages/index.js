@@ -7,7 +7,7 @@ import Container from "../components/Container";
 import Button from "../components/Button";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Card from "../components/Card";
-
+import ImageSlider from "../components/ImageSlider";
 import Slider from "react-slick";
 import media from "styled-media-query";
 
@@ -68,42 +68,19 @@ const IndexWrapper = styled.div`
     }
   }
   .hero-text {
+    margin: 70px auto auto auto;
+    max-width: 1200px;
+    font-size: 50px;
+    ${media.lessThan("medium")`
     font-size: 30px;
-    margin: 30px 0 0 0;
-  }
-  .slider {
-    display: block;
+    `}
 
-    .image-container {
-      width: 100%;
-
-      > div {
-        position: unset !important;
-      }
-
-      .image {
-        object-fit: cover;
-        width: 100% !important;
-        position: relative !important;
-        min-height: 600px !important;
-        ${media.lessThan("medium")`
-min-height: 300px !important;
-`}
-      }
+    p {
+      text-align: center;
+      font-weight: 700 !important;
     }
   }
 `;
-
-var settings = {
-  arrows: false,
-  dots: true,
-  infinite: true,
-  speed: 1000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 3000,
-};
 
 export default function Home({ data, content, news }) {
   return (
@@ -115,7 +92,7 @@ export default function Home({ data, content, news }) {
         />
       </Head>
       <IndexWrapper>
-        <Slider className="slider" {...settings}>
+        <ImageSlider height="600px">
           {content.indices[0].indexImage.map((e, index) => {
             return (
               <div key={index} className="image-container">
@@ -125,20 +102,20 @@ export default function Home({ data, content, news }) {
                   className={"image"}
                   layout="fill"
                   src={e.url}
+                  priority={true}
                 />
               </div>
             );
           })}
-        </Slider>
-
+        </ImageSlider>
+        <div className="hero-text">
+          <p>
+            Angebot für Freizeit und Ferienbegleitung für Menschen mit einer
+            Beeinträchtigung
+          </p>
+        </div>
         <Container>
           <Container maxwidth="700px">
-            <div className="hero-text">
-              <p>
-                Angebot für Freizeit und Ferienbegleitung für Menschen mit einer
-                geistigen, psychischen oder körperlichen Beeinträchtigung
-              </p>
-            </div>
             <div className="lead-text announce">
               <h1>{content.indices[0].title}</h1>
               <RichText content={content.indices[0].description.raw} />

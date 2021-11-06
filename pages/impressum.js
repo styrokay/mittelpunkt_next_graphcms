@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Container from "../components/Container";
 
 const ImpressumWrapper = styled.div`
+  min-height: 100vh;
   h3 {
     font-weight: 400;
   }

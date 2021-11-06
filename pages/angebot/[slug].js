@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Container from "../../components/Container";
 import media from "styled-media-query";
+import ImageSlider from "../../components/ImageSlider";
 
 const ServiceWrapper = styled.div``;
 
@@ -25,14 +26,42 @@ const Service = ({ service }) => {
       <Container maxwidth="700px">
         <h1>{service.title}</h1>
       </Container>
-      <ImageWrapper>
+      {service.images.length > 1 ? (
+        <ImageSlider height="800px">
+          {" "}
+          {service.images.map((e, index) => {
+            return (
+              <div key={index} className="image-container">
+                <Image
+                  alt="Bild Mittelpunkt"
+                  quality={"80"}
+                  className={"image"}
+                  layout="fill"
+                  src={e.url}
+                  priority={true}
+                />
+              </div>
+            );
+          })}{" "}
+        </ImageSlider>
+      ) : (
+        <ImageWrapper>
+          <Image
+            alt="Bild Angebot"
+            layout="fill"
+            objectFit="cover"
+            src={service.images[0].url}
+          />
+        </ImageWrapper>
+      )}
+      {/*     <ImageWrapper>
         <Image
           alt="Bild Angebot"
           layout="fill"
           objectFit="cover"
           src={service.images[0].url}
         />
-      </ImageWrapper>
+      </ImageWrapper> */}
       <Container maxwidth="700px">
         <div className="text-container">
           <RichText content={service.details.json} />

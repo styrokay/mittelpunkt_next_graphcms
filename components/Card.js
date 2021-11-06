@@ -73,6 +73,8 @@ const Card = ({ data: { title, date, images, description, slug } }) => {
           alt="Vorschau Angebot"
           src={images[0].url}
           layout="fill"
+          quality="10"
+          priority={true}
           objectFit="cover"
         />
         <div className="title">
