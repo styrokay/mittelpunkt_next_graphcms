@@ -40,13 +40,6 @@ text-align: right;
 
 
 
-.space {
-/*     height: 1px;
-    width: 50%;
-    background: ${({ theme }) => theme.colors.primary};
-    margin: 30px auto; */
-  }
-
 h1{
     font-size: 45px;
     font-weight: 400;
@@ -95,6 +88,9 @@ h3{
     font-size: 30px;
     font-weight: 400;
     margin-top: 50px;
+    i{
+        font-weight: 400;
+    }
 }
 
 p, li{
@@ -129,9 +125,16 @@ display: inline-block;
 }
 }
 
-::marker{
-    color: ${({ theme }) => theme.colors.primary};
+u{
+    text-decoration-color: ${({ theme }) => theme.colors.primary};
+}
 
+::marker{
+    color: 
+
+}
+::selection {
+  background: ${({ theme }) => theme.colors.primary};
 }
 
 `;

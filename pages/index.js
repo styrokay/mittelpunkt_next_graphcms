@@ -14,8 +14,16 @@ import media from "styled-media-query";
 const IndexWrapper = styled.div`
   box-sizing: border-box;
 
+  .image-wrapper {
+    height: 50vh;
+    position: relative;
+    ${media.lessThan("medium")`
+    height: 300px; 
+    `}
+  }
+
   .announce {
-    margin: 100px 0;
+    /*     margin: 80px 0; */
 
     .text-container {
       display: flex;
@@ -72,7 +80,8 @@ const IndexWrapper = styled.div`
     max-width: 1200px;
     font-size: 50px;
     ${media.lessThan("medium")`
-    font-size: 30px;
+    font-size: 28px;
+    margin: 40px auto auto auto;
     `}
 
     p {
@@ -92,22 +101,28 @@ export default function Home({ data, content, news }) {
         />
       </Head>
       <IndexWrapper>
-        <ImageSlider height="600px">
+        {/*         <ImageSlider height="400px">
           {content.indices[0].indexImage.map((e, index) => {
             return (
-              <div key={index} className="image-container">
-                <Image
-                  alt="Bild Mittelpunkt"
-                  quality={"80"}
-                  className={"image"}
-                  layout="fill"
-                  src={e.url}
-                  priority={true}
-                />
-              </div>
-            );
+              <div key={index} className="image-container"> */}
+        <Container maxwidth="100%">
+          <div className="image-wrapper">
+            <Image
+              alt="Bild Mittelpunkt"
+              /*   quality={"80"} */
+              /*     className={"image"} */
+              layout="fill"
+              objectFit="cover"
+              src={content.indices[0].indexImage[0].url}
+              priority={true}
+            />
+          </div>
+        </Container>
+
+        {/*    </div> */}
+        {/*             );
           })}
-        </ImageSlider>
+        </ImageSlider> */}
         <div className="hero-text">
           <p>
             Angebot für Freizeit und Ferienbegleitung für Menschen mit einer

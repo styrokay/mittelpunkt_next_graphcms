@@ -26,34 +26,37 @@ const Service = ({ service }) => {
       <Container maxwidth="700px">
         <h1>{service.title}</h1>
       </Container>
-      {service.images.length > 1 ? (
-        <ImageSlider height="800px">
-          {" "}
-          {service.images.map((e, index) => {
-            return (
-              <div key={index} className="image-container">
-                <Image
-                  alt="Bild Mittelpunkt"
-                  quality={"80"}
-                  className={"image"}
-                  layout="fill"
-                  src={e.url}
-                  priority={true}
-                />
-              </div>
-            );
-          })}{" "}
-        </ImageSlider>
-      ) : (
-        <ImageWrapper>
-          <Image
-            alt="Bild Angebot"
-            layout="fill"
-            objectFit="cover"
-            src={service.images[0].url}
-          />
-        </ImageWrapper>
-      )}
+
+      <Container maxwidth="1000px">
+        {service.images.length > 1 ? (
+          <ImageSlider height="800px">
+            {" "}
+            {service.images.map((e, index) => {
+              return (
+                <div key={index} className="image-container">
+                  <Image
+                    alt="Bild Mittelpunkt"
+                    /*       quality={"80"} */
+                    className={"image"}
+                    layout="fill"
+                    src={e.url}
+                    priority={true}
+                  />
+                </div>
+              );
+            })}{" "}
+          </ImageSlider>
+        ) : (
+          <ImageWrapper>
+            <Image
+              alt="Bild Angebot"
+              layout="fill"
+              objectFit="cover"
+              src={service.images[0].url}
+            />
+          </ImageWrapper>
+        )}
+      </Container>
       {/*     <ImageWrapper>
         <Image
           alt="Bild Angebot"
