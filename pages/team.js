@@ -48,7 +48,7 @@ const Team = ({ data }) => {
                 <Image
                   alt="Portrait Team"
                   objectPosition="top"
-                  quality="100"
+                  quality="60"
                   layout="fill"
                   objectFit="cover"
                   src={e.image.url}

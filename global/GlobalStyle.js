@@ -129,10 +129,7 @@ u{
     text-decoration-color: ${({ theme }) => theme.colors.primary};
 }
 
-::marker{
-    color: 
 
-}
 ::selection {
   background: ${({ theme }) => theme.colors.primary};
 }

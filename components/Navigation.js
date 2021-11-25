@@ -18,10 +18,7 @@ const NavbarWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  ${media.lessThan("medium")`
-    padding: 0 20px;
-    
-    `}
+  padding: 0 20px;
 
   .link-menu {
     display: flex;
@@ -39,10 +36,6 @@ const NavbarWrapper = styled.nav`
     align-items: flex-start;
     align-items: center;
     justify-content: flex-start;
-    ${media.lessThan("medium")`
-    align-items: flex-end;
-    
-    `}
     
     `};
   }
@@ -52,10 +45,10 @@ const NavbarWrapper = styled.nav`
       text-decoration: none;
       color: black;
     }
-    font-size: 23px;
+    font-size: 20px;
     position: relative;
     font-weight: 300;
-    margin: 0 30px;
+    margin: 0 22px;
     background: white;
     z-index: 200;
     transition: all 0.2s ease-in-out;
@@ -103,7 +96,7 @@ const NavbarWrapper = styled.nav`
     `}
   }
   .icon {
-    margin: auto;
+    margin-right: auto;
     ${media.lessThan("medium")`
 margin: 15px auto auto 0;
     
