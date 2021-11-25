@@ -97,7 +97,7 @@ const NavbarWrapper = styled.nav`
     }
   }
   button {
-    ${media.greaterThan("medium")`
+    ${media.greaterThan("769px")`
    display: none;
     
     `}

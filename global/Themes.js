@@ -12,9 +12,5 @@ export const themes = {
       background: "#F8F8FA",
       overlay: "#EA6861",
     },
-    fonts: {
-      primary: "Gilroy, sans-serif;",
-      secondary: "Gilroy, sans-serif;",
-    },
   },
 };

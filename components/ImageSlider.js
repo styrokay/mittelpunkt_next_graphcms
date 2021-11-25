@@ -18,8 +18,11 @@ const SliderWrapper = styled.div`
         object-fit: cover;
         width: 100% !important;
         position: relative !important;
-        min-height: ${(props) => props.height} !important;
+        min-height: 800px !important;
         ${media.lessThan("medium")`
+min-height: 500px !important;
+`}
+        ${media.lessThan("small")`
 min-height: 300px !important;
 `}
       }
@@ -36,7 +39,7 @@ const ImageSlider = ({ children, height }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
   };
 
   return (

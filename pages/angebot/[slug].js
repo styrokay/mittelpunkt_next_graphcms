@@ -29,7 +29,7 @@ const Service = ({ service }) => {
 
       <Container maxwidth="1000px">
         {service.images.length > 1 ? (
-          <ImageSlider height="800px">
+          <ImageSlider>
             {" "}
             {service.images.map((e, index) => {
               return (
