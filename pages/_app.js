@@ -1,19 +1,19 @@
 import Layout from "../components/Layout";
-import GlobalStyle from "../global/GlobalStyle";
+
 import { AppWrapper } from "../context/state";
 import Head from "next/head";
+import { DefaultSeo } from "next-seo";
+import SEO from "../lib/seo.config";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <title>mittelpunkt</title>
-        <link rel="icon" href="/favicon.png" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
-        />
-      </Head>
+      <DefaultSeo
+        title="Willkommen"
+        titleTemplate="mittelpunkt | %s"
+        description="Angebot für Freizeit und Ferienbegleitung für Menschen mit einer geistigen, psychischen oder körperlichen Beeinträchtigung"
+        {...SEO}
+      />
       <AppWrapper>
         <Layout>
           <Component {...pageProps} />

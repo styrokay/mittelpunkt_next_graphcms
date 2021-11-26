@@ -5,6 +5,7 @@ import Image from "next/image";
 import { getAboutData } from "../lib/data";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import media from "styled-media-query";
+import { NextSeo } from "next-seo";
 
 const ImageWrapper = styled.div`
   position: relative;
@@ -33,6 +34,7 @@ const TeamWrapper = styled.div`
 const Team = ({ data }) => {
   return (
     <TeamWrapper>
+      <NextSeo title="Team" />
       <Container maxwidth="700px">
         <h1>Team</h1>
       </Container>

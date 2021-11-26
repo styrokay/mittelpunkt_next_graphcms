@@ -9,6 +9,7 @@ import media from "styled-media-query";
 import Moment from "react-moment";
 import "moment/locale/de-ch";
 import Card from "../components/Card";
+import { NextSeo } from "next-seo";
 
 const ServiceWrapper = styled.div`
   .card {
@@ -81,6 +82,7 @@ const ImageWrapper = styled.div`
 const Angebot = ({ permanent, temporary }) => {
   return (
     <ServiceWrapper>
+      <NextSeo title="Angebote" />
       <Container>
         <h1>Angebot</h1>
 

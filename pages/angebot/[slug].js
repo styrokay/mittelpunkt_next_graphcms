@@ -7,6 +7,7 @@ import { RichText } from "@graphcms/rich-text-react-renderer";
 import Container from "../../components/Container";
 import media from "styled-media-query";
 import ImageSlider from "../../components/ImageSlider";
+import { NextSeo } from "next-seo";
 
 const ServiceWrapper = styled.div``;
 
@@ -23,6 +24,7 @@ const Service = ({ service }) => {
   console.log(service);
   return (
     <ServiceWrapper>
+      <NextSeo title={service.title} />
       <Container maxwidth="700px">
         <h1>{service.title}</h1>
       </Container>

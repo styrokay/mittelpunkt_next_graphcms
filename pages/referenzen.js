@@ -4,6 +4,7 @@ import { RichText } from "@graphcms/rich-text-react-renderer";
 import styled from "styled-components";
 import Container from "../components/Container";
 import media from "styled-media-query";
+import { NextSeo } from "next-seo";
 
 const ReferenceWrapper = styled.div`
   min-height: 100vh;
@@ -33,6 +34,7 @@ padding: 0 20px;
 const Referenzen = ({ data }) => {
   return (
     <ReferenceWrapper>
+      <NextSeo title="Referenzen" />
       <Container>
         <h1>Referenzen</h1>
         <Container maxwidth="700px">

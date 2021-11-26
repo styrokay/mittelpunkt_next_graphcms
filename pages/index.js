@@ -10,6 +10,7 @@ import Card from "../components/Card";
 import ImageSlider from "../components/ImageSlider";
 import Slider from "react-slick";
 import media from "styled-media-query";
+import { NextSeo } from "next-seo";
 
 const IndexWrapper = styled.div`
   box-sizing: border-box;
@@ -94,12 +95,7 @@ const IndexWrapper = styled.div`
 export default function Home({ data, content, news }) {
   return (
     <>
-      <Head>
-        <meta
-          name="description"
-          content="Angebot für Freizeit und Ferienbegleitung für Menschen mit einer geistigen, psychischen oder körperlichen Beeinträchtigung"
-        />
-      </Head>
+      <NextSeo />
       <IndexWrapper>
         {/*         <ImageSlider height="400px">
           {content.indices[0].indexImage.map((e, index) => {

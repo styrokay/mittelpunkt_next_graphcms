@@ -4,7 +4,7 @@ import { getAboutData } from "../lib/data";
 import styled from "styled-components";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Container from "../components/Container";
-
+import { NextSeo } from "next-seo";
 const AboutWrapper = styled.div`
   .name {
     font-weight: 500;
@@ -30,6 +30,7 @@ const ImageWrapper = styled.div`
 const Ueber = ({ data }) => {
   return (
     <AboutWrapper>
+      <NextSeo title="Über mittelpunkt" />
       <Container maxwidth="700px">
         <h1>Über mittelpunkt</h1>
       </Container>
