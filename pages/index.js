@@ -177,5 +177,6 @@ export const getStaticProps = async () => {
       content,
       news,
     },
+    revalidate: 10,
   };
 };

@@ -176,5 +176,6 @@ export const getStaticProps = async () => {
       permanent,
       temporary,
     },
+    revalidate: 10,
   };
 };
