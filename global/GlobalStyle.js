@@ -134,6 +134,10 @@ u{
   background: ${({ theme }) => theme.colors.primary};
 }
 
+::marker{
+color: ${({ theme }) => theme.colors.primary};
+}
+
 `;
 
 export default GlobalStyle;
